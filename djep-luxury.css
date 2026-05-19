@@ -1,0 +1,664 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap');
+
+:root {
+  --sr-red: #cc0000;
+  --sr-red-bright: #ff0000;
+  --sr-black: #050505;
+  --sr-charcoal: #111111;
+  --sr-white: #ffffff;
+  --sr-soft-white: #f7f4ef;
+  --sr-muted: #6b7280;
+  --sr-border: rgba(255, 255, 255, 0.16);
+  --sr-glass: rgba(255, 255, 255, 0.92);
+  --sr-shadow: 0 28px 80px rgba(0, 0, 0, 0.36);
+  --sr-radius-lg: 26px;
+  --sr-radius-md: 16px;
+  --sr-radius-sm: 10px;
+}
+
+html {
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body.djep-body {
+  width: 100% !important;
+  min-height: 100vh !important;
+  margin: 0 !important;
+  padding: 24px 14px 48px !important;
+  color: #1f2937 !important;
+  font-family: 'Inter', Arial, Helvetica, sans-serif !important;
+  font-size: 15px !important;
+  line-height: 1.65 !important;
+  background:
+    radial-gradient(circle at 15% 15%, rgba(255, 0, 0, 0.34), transparent 30%),
+    radial-gradient(circle at 85% 12%, rgba(204, 0, 0, 0.22), transparent 28%),
+    radial-gradient(circle at 50% 100%, rgba(255, 255, 255, 0.12), transparent 30%),
+    linear-gradient(135deg, #020202 0%, #151515 42%, #3a0000 100%) !important;
+  background-size: 140% 140%, 160% 160%, 120% 120%, 100% 100% !important;
+  background-attachment: fixed !important;
+  animation: srLuxuryBackground 18s ease-in-out infinite alternate;
+}
+
+body.djep-body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,0.85), transparent 80%);
+}
+
+@keyframes srLuxuryBackground {
+  0% { background-position: 0% 0%, 100% 0%, 50% 100%, center; }
+  100% { background-position: 100% 45%, 0% 65%, 65% 80%, center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.djep-body { animation: none !important; }
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+/* Main portal shell */
+#djep-page,
+#djep-guestrequestpage {
+  width: 100% !important;
+  max-width: 1180px !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+}
+
+#djep-header {
+  width: 100% !important;
+  max-width: 1040px !important;
+  margin: 0 auto 14px !important;
+  padding: 18px 12px !important;
+  text-align: center !important;
+}
+
+#djep-header img {
+  max-width: min(360px, 86vw) !important;
+  height: auto !important;
+  filter: drop-shadow(0 18px 38px rgba(0,0,0,0.45));
+}
+
+#djep-content,
+#djep-guestrequestcontent {
+  width: min(1040px, 100%) !important;
+  max-width: 1040px !important;
+  margin: 0 auto 40px !important;
+  padding: clamp(18px, 3vw, 38px) !important;
+  overflow: visible !important;
+  color: #1f2937 !important;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.97), rgba(247,244,239,0.94)) !important;
+  border: 1px solid rgba(255,255,255,0.65) !important;
+  border-radius: var(--sr-radius-lg) !important;
+  box-shadow: var(--sr-shadow) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+#djep-content::before,
+#djep-guestrequestcontent::before {
+  content: 'Sound Ryte Client Experience';
+  display: block;
+  margin: -4px 0 22px;
+  color: var(--sr-red) !important;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+/* Typography */
+h1.djep-h1,
+h2.djep-h2,
+h3.djep-h3,
+*[class*='djep-titlebar'] {
+  font-family: 'Playfair Display', Georgia, serif !important;
+  letter-spacing: -0.02em;
+}
+
+h1.djep-h1 {
+  margin: 8px 0 18px !important;
+  color: var(--sr-black) !important;
+  font-size: clamp(34px, 5vw, 58px) !important;
+  line-height: 1.02 !important;
+}
+
+h2.djep-h2 {
+  margin: 22px 0 14px !important;
+  color: var(--sr-red) !important;
+  font-size: clamp(26px, 3.5vw, 40px) !important;
+  line-height: 1.12 !important;
+}
+
+h3.djep-h3 {
+  color: #262626 !important;
+  font-size: clamp(20px, 2.2vw, 28px) !important;
+}
+
+p, p.djep-p-standard, td, th, label, input, select, textarea {
+  font-family: 'Inter', Arial, Helvetica, sans-serif !important;
+}
+
+p.djep-p-standard, p {
+  font-size: clamp(15px, 1.6vw, 17px) !important;
+  color: #374151 !important;
+}
+
+a {
+  color: var(--sr-red) !important;
+  text-decoration: none !important;
+  transition: color 180ms ease, opacity 180ms ease, transform 180ms ease;
+}
+
+a:hover { color: var(--sr-red-bright) !important; }
+
+/* Modern navigation */
+#djep-navbar {
+  width: min(1040px, 100%) !important;
+  height: auto !important;
+  margin: 0 auto 20px !important;
+  padding: 12px !important;
+  background: rgba(0,0,0,0.64) !important;
+  border: 1px solid var(--sr-border) !important;
+  border-radius: 999px !important;
+  box-shadow: 0 18px 44px rgba(0,0,0,0.28) !important;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+ul#djep-navigation {
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 10px !important;
+  justify-content: center !important;
+  align-items: center !important;
+  overflow: visible !important;
+}
+
+ul#djep-navigation li,
+ul#djep-navigation li.selected {
+  float: none !important;
+  width: auto !important;
+  min-width: 128px !important;
+  margin: 0 !important;
+  border: 1px solid rgba(255,255,255,0.15) !important;
+  border-radius: 999px !important;
+  background: rgba(255,255,255,0.07) !important;
+  overflow: hidden !important;
+}
+
+ul#djep-navigation li.shadow { display: none !important; }
+
+ul#djep-navigation li a:link,
+ul#djep-navigation li a:visited {
+  width: 100% !important;
+  height: auto !important;
+  min-height: 44px !important;
+  padding: 12px 18px !important;
+  line-height: 1.1 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  float: none !important;
+  color: #ffffff !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.09em !important;
+  text-transform: uppercase !important;
+  border-radius: 999px !important;
+  background: transparent !important;
+}
+
+ul#djep-navigation li a:hover {
+  background: rgba(255,255,255,0.12) !important;
+  transform: translateY(-1px);
+}
+
+ul#djep-navigation li.selected,
+ul#djep-navigation li.selected a:link,
+ul#djep-navigation li.selected a:visited {
+  color: #ffffff !important;
+  border-color: rgba(255,255,255,0.32) !important;
+  background: linear-gradient(135deg, var(--sr-red), #790000) !important;
+  box-shadow: 0 12px 28px rgba(204,0,0,0.32) !important;
+}
+
+/* Title bars and section headers */
+.djep-titlebar,
+.djep-titlebarsmall,
+.djep-titlebarsmaller,
+.djep-titlebarnotices,
+.djep-requestlimittitle,
+.djep-special_song_header,
+.djep-databaseheader {
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  margin: 24px 0 16px !important;
+  padding: 16px 18px !important;
+  text-indent: 0 !important;
+  color: #ffffff !important;
+  font-size: clamp(18px, 2vw, 24px) !important;
+  font-weight: 700 !important;
+  border: 1px solid rgba(255,255,255,0.10) !important;
+  border-radius: var(--sr-radius-md) !important;
+  background: linear-gradient(135deg, #050505 0%, #1b1b1b 52%, #650000 100%) !important;
+  box-shadow: 0 18px 42px rgba(0,0,0,0.16) !important;
+}
+
+.djep-titlebarsmallalert,
+.djep-titlebarlockout {
+  width: 100% !important;
+  border-radius: var(--sr-radius-md) !important;
+}
+
+/* Cards, fieldsets, forms */
+#djep-form-div,
+#djep-contactbox,
+.djep-service-desc-div,
+.djep-servicedetailsfieldset,
+.djep-databasebox,
+.djep-playlistbox,
+.djep-playlistboxmustplay,
+.djep-playlistboxdonotplay,
+.djep-playlistboxplayifposs,
+.djep-playlistboxdedications,
+.djep-playlistboxonlyrequest,
+.djep-special_song_content_div,
+.djep-accordionContent,
+.djep-accordionButton {
+  background: rgba(255,255,255,0.94) !important;
+  border: 1px solid rgba(17,17,17,0.10) !important;
+  border-radius: var(--sr-radius-md) !important;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.07) !important;
+}
+
+#djep-form-div,
+#djep-contactbox,
+.djep-databasebox,
+.djep-special_song_content_div,
+.djep-accordionContent {
+  padding: clamp(14px, 2.5vw, 24px) !important;
+}
+
+fieldset {
+  border-radius: var(--sr-radius-md) !important;
+  border: 1px solid rgba(0,0,0,0.12) !important;
+}
+
+legend,
+.djep-servicedetailslegend {
+  color: var(--sr-red) !important;
+  font-weight: 800 !important;
+  padding: 0 8px !important;
+}
+
+/* Inputs */
+input.djep-input,
+select.djep-select,
+textarea.djep-textarea,
+input[type='text'],
+input[type='email'],
+input[type='password'],
+input[type='tel'],
+input[type='number'],
+input[type='date'],
+select,
+textarea,
+.djep-musicsearchform,
+.djep-songideasdropdown,
+.djep-songgenresdropdown {
+  width: auto;
+  max-width: 100% !important;
+  min-height: 44px !important;
+  padding: 12px 14px !important;
+  color: #111827 !important;
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  background: #ffffff !important;
+  border: 1px solid rgba(17,17,17,0.16) !important;
+  border-radius: var(--sr-radius-sm) !important;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.05) !important;
+  outline: none !important;
+}
+
+textarea.djep-textarea,
+textarea {
+  min-height: 120px !important;
+  line-height: 1.55 !important;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+.djep-musicsearchform:focus {
+  border-color: var(--sr-red) !important;
+  box-shadow: 0 0 0 4px rgba(204,0,0,0.12) !important;
+}
+
+.djep-form label,
+label {
+  display: inline-block;
+  margin: 0 0 6px !important;
+  padding: 0 !important;
+  color: #111827 !important;
+  font-size: 14px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.02em;
+}
+
+/* Buttons */
+.djep-planeventbutton,
+.djep-eventdetailsbutton,
+.djep-paymentbutton,
+.djep-readviewbutton,
+.djep-actionbutton,
+.djep-logoutbutton,
+.djep-searchbutton,
+.djep-clipboardbutton,
+.djep-songideabutton,
+.djep-toplistbuttons,
+.djep-toplistbuttons2,
+.djep-toplistbuttons3,
+.djep-toplistbuttons4,
+.djep-toplistbuttons5,
+.djep-submit input,
+input[type='submit'],
+button {
+  min-height: 42px !important;
+  width: auto !important;
+  max-width: 100% !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  padding: 11px 20px !important;
+  color: #ffffff !important;
+  font-family: 'Inter', Arial, Helvetica, sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  text-align: center !important;
+  text-shadow: none !important;
+  text-indent: 0 !important;
+  cursor: pointer !important;
+  border: 1px solid rgba(255,255,255,0.18) !important;
+  border-radius: 999px !important;
+  background: linear-gradient(135deg, var(--sr-red-bright), var(--sr-red) 48%, #740000) !important;
+  box-shadow: 0 14px 30px rgba(204,0,0,0.28) !important;
+  transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease !important;
+}
+
+.djep-planeventbutton:hover,
+.djep-eventdetailsbutton:hover,
+.djep-paymentbutton:hover,
+.djep-readviewbutton:hover,
+.djep-actionbutton:hover,
+.djep-logoutbutton:hover,
+.djep-searchbutton:hover,
+.djep-clipboardbutton:hover,
+.djep-songideabutton:hover,
+.djep-toplistbuttons:hover,
+.djep-toplistbuttons2:hover,
+.djep-toplistbuttons3:hover,
+.djep-toplistbuttons4:hover,
+.djep-toplistbuttons5:hover,
+input[type='submit']:hover,
+button:hover {
+  transform: translateY(-2px) !important;
+  filter: brightness(1.05) !important;
+  box-shadow: 0 20px 42px rgba(204,0,0,0.34) !important;
+}
+
+.djep-clipboardbutton,
+.djep-songideabutton,
+.djep-readviewbutton {
+  color: #111827 !important;
+  background: #ffffff !important;
+  border: 1px solid rgba(17,17,17,0.14) !important;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.10) !important;
+}
+
+/* Tables */
+table {
+  width: 100% !important;
+  max-width: 100% !important;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+}
+
+th,
+td {
+  padding: 12px 10px !important;
+  vertical-align: middle !important;
+}
+
+.djep-table-headers,
+.djep-databasetableheader,
+.djep-sectiontitle,
+th {
+  color: #ffffff !important;
+  background: #111111 !important;
+  font-weight: 800 !important;
+}
+
+.djep-odd,
+.djep-even,
+tr {
+  transition: background-color 160ms ease;
+}
+
+.djep-odd { background-color: #f8f8f8 !important; }
+.djep-even { background-color: #ffffff !important; }
+.djep-tablehover,
+tr:hover { background-color: rgba(204,0,0,0.06) !important; }
+
+/* Playlist and request panels */
+.djep-playlistboxmustplaytitle,
+.djep-playlistboxplayifposstitle,
+.djep-playlistboxdedicationstitle,
+.djep-playlistboxonlyrequesttitle,
+.djep-playlistboxdonotplaytitle,
+.djep-playlistboxcustomtype1title,
+.djep-playlistboxcustomtype2title,
+.djep-playlistboxcustomtype3title,
+.djep-playlistboxcustomtype4title,
+.djep-playlistboxcustomtype5title {
+  height: auto !important;
+  min-height: 44px !important;
+  margin-top: 14px !important;
+  padding: 12px 14px !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
+  border: none !important;
+  border-radius: var(--sr-radius-md) var(--sr-radius-md) 0 0 !important;
+  background: linear-gradient(135deg, #111111, #3b0000) !important;
+}
+
+.djep-specialtitle,
+.djep-playlisttitle {
+  position: static !important;
+  display: block !important;
+  padding: 0 !important;
+}
+
+.djep-playlistlimits,
+.djep-musiccounterspan,
+.djep-playlistcounterspan {
+  color: var(--sr-muted) !important;
+}
+
+/* Status rows: keep meaning but modernize */
+.djep-balanceduerow,
+.djep-balancepaidrow,
+.djep-totalfeerow,
+.djep-totaldepositrow {
+  border-radius: var(--sr-radius-sm) !important;
+  font-weight: 900 !important;
+}
+
+.djep-balanceduerow { background-color: #fff7d6 !important; color: #9a5b00 !important; }
+.djep-balancepaidrow { background-color: #e8ffe0 !important; color: #176b2c !important; }
+.djep-totalfeerow, .djep-totalfeerow span { background-color: #e8f6ff !important; color: #075985 !important; }
+.djep-totaldepositrow { background-color: #ffe8e8 !important; color: #991b1b !important; }
+
+/* Calendar icon refresh */
+.calendar {
+  border-radius: 14px !important;
+  overflow: hidden !important;
+  background: #ffffff !important;
+  box-shadow: 0 14px 30px rgba(0,0,0,0.15) !important;
+}
+.calendar > .month {
+  background: var(--sr-red) !important;
+  color: #ffffff !important;
+  text-shadow: none !important;
+}
+.calendar > .day { color: #111111 !important; }
+
+/* Make embedded content and images responsive */
+img, iframe, object, embed, video {
+  max-width: 100% !important;
+}
+
+/* Better print helper */
+#djep-printhelper {
+  height: auto !important;
+  padding: 10px 0 !important;
+}
+
+/* Mobile optimization */
+@media (max-width: 760px) {
+  body.djep-body {
+    padding: 14px 8px 32px !important;
+    background-attachment: scroll !important;
+  }
+
+  #djep-content,
+  #djep-guestrequestcontent {
+    padding: 18px 14px !important;
+    border-radius: 20px !important;
+  }
+
+  #djep-content::before,
+  #djep-guestrequestcontent::before {
+    font-size: 10px !important;
+    letter-spacing: 0.16em !important;
+    margin-bottom: 16px !important;
+  }
+
+  #djep-navbar {
+    border-radius: 22px !important;
+    padding: 10px !important;
+  }
+
+  ul#djep-navigation {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
+
+  ul#djep-navigation li {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  ul#djep-navigation li a:link,
+  ul#djep-navigation li a:visited {
+    min-height: 48px !important;
+    font-size: 12px !important;
+  }
+
+  h1.djep-h1 { font-size: 34px !important; }
+  h2.djep-h2 { font-size: 26px !important; }
+
+  input.djep-input,
+  select.djep-select,
+  textarea.djep-textarea,
+  input[type='text'],
+  input[type='email'],
+  input[type='password'],
+  input[type='tel'],
+  input[type='number'],
+  input[type='date'],
+  select,
+  textarea,
+  .djep-musicsearchform,
+  .djep-songideasdropdown,
+  .djep-songgenresdropdown {
+    width: 100% !important;
+  }
+
+  .djep-planeventbutton,
+  .djep-eventdetailsbutton,
+  .djep-paymentbutton,
+  .djep-readviewbutton,
+  .djep-actionbutton,
+  .djep-logoutbutton,
+  .djep-searchbutton,
+  .djep-clipboardbutton,
+  .djep-songideabutton,
+  input[type='submit'],
+  button {
+    width: 100% !important;
+    margin: 6px 0 !important;
+  }
+
+  table {
+    display: block !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  th, td {
+    min-width: 120px;
+    font-size: 13px !important;
+  }
+
+  #djep-wrapper,
+  .djep-viewplanningformdiv {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+/* Small phone cleanup */
+@media (max-width: 420px) {
+  #djep-content,
+  #djep-guestrequestcontent {
+    padding: 14px 10px !important;
+  }
+
+  .djep-titlebar,
+  .djep-titlebarsmall,
+  .djep-titlebarsmaller,
+  .djep-titlebarnotices,
+  .djep-requestlimittitle,
+  .djep-special_song_header,
+  .djep-databaseheader {
+    padding: 14px !important;
+    font-size: 18px !important;
+  }
+}
